@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <body>
+        <header>
+            <img src="C:/Users/nestess/OneDrive - Hood Industries, Inc/Desktop/Card2/Hood horizontal Logo.png" 
+                 alt="Hood Horizontal Logo" 
+                 class="logo-header"
+                 style="max-width: 120px;">
+
+        </header>
+    <style>
+        /* VisionOS-Inspired Design */
+            header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .logo-header {
+             max-width: 180px; /* Adjust this width as needed */
+                height: auto;
+                object-fit: contain;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(to bottom right, rgba(240, 240, 240, 0.8), rgba(255, 255, 255, 0.8));
+            backdrop-filter: blur(30px);
+            margin: 0;
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: flex;
+            overflow-y: auto;
+        }
+
+        h1 {
+            color: #1d1d1f;
+            font-weight: 600;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card {
+            width: 400px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            transition: 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .profile-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid  rgb(206, 92, 40);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            margin-top: 10px;
+            max-width: 90px;
+        }
+
+        .button {
+            background: linear-gradient(to right, #ff7b00, #f8a546);
+            color: #ffffff;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 15px auto;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #ff7b00,  #f8a546);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        form {
+            max-width: 440px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            backdrop-filter: blur(30px);
+            margin-bottom: 30px;
+        }
+
+        input, select, textarea {
+            width: 90%;
+            margin: 12px 0;
+            padding: 14px;
+            border: 2px solid rgba(220, 220, 220, 0.6);
+            border-radius: 12px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #ff7b00;
+            outline: none;
+        }
+        .hidden {
+    display: none;
+}
+
+.footer {
+    background-color: rgba(240, 240, 240, 0.9); /* Light background color */
+    padding: 20px; /* Space inside the footer */
+    text-align: center; /* Center the text */
+    font-size: 14px; /* Smaller font for footer text */
+    color: #1d1d1f; /* Neutral text color */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle top border */
+    position: absolute; /* Make the footer stick to the bottom */
+    bottom: 0;
+    width: 100%; /* Ensure the footer spans the full width */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow for a polished look */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+footer {
+    margin-top: auto; /* Push the footer to the bottom if there's extra space */
+}
+    </style>
+
+</head>
+<body>
+    <form id="form">
+        <h1>Enter Contact Information</h1>
+        <label for="profileImageUpload">Profile Image:</label>
+        <input type="file" id="profileImageUpload" accept="image/*"><br>
+
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput"><br>
+
+        <label for="titleInput">Job Title:</label>
+        <input type="text" id="titleInput"><br>
+
+        <label for="aboutMeInput">About Me (180 characters max):</label>
+        <textarea id="aboutMeInput" maxlength="180"></textarea><br>
+
+        <div class="field-container" id="phoneContainer">
+            <label for="phoneInput">Phone Number:</label>
+            <input type="tel" id="phoneInput" pattern="\\d{3}-\\d{3}-\\d{4}" placeholder="123-456-7890" title="Phone numb">
+            <button type="button" class="button" onclick="addAnotherField('phoneContainer', 'tel')">Add Another Phone Number</button><br>
+        </div>
+
+        <div class="field-container" id="ExtensionContainer">
+            <label for="extInput">Extension:</label>
+            <input type="tel" id="extInput" placeholder="12345" title="Phone ext">
+           <br><br>
+        </div>
+
+        <div class="field-container" id="emailContainer">
+            <label for="emailInput">Hood Industries Email Address:</label>
+            <input type="email" id="emailInput" placeholder="example@HoodIndustries.com" title="Enter a valid email address"><br>
+            </div>
+<br><br>
+        <div class="field-container" id="linkContainer">
+            <label for="linkInput">Website/Link:</label>
+            <input type="url" id="linkInput">
+            <button type="button" class="button" onclick="addAnotherField('linkContainer', 'url')">Add Another Link</button><br>
+        </div>
+
+        <label for="logoSelect">Select Logo:</label>
+        <select id="logoSelect">
+            <option value="">None</option>
+            <option value="C:/Users/nestess/OneDrive - Hood Industries, Inc/Desktop/Card2/Hood Distribution.png">Hood Distribution</option>
+            <option value="C:/Users/nestess/OneDrive - Hood Industries, Inc/Desktop/Card2/Hood Industries.png">Hood Industries</option>
+        </select><br>
+
+        <button type="button" class="button" onclick="generateCard()">Generate Card</button>
+    </form>
+
+    <div class="card hidden" id="card">
+        <img src="" alt="Profile Image" class="profile-image" id="profileImage">
+        <h2 id="name">Your Name</h2>
+        <p id="title">Your Job Title</p>
+        <p id="aboutMe">Tell us about yourself</p>
+        <div id="contacts"></div>
+        <img src="" alt="Logo" class="logo" id="logoImage">
+    </div>
+
+    <button type="button" class="button hidden" id="saveCardButton" onclick="saveCard()">Save Card</button>
+    <script>
+        function addAnotherField(containerId, type) {
+            const container = document.getElementById(containerId);
+            const newField = document.createElement('input');
+            newField.type = type;
+            newField.placeholder = `Add another ${type}`;
+            container.appendChild(newField);
+        }
+
+        function generateCard() {
+            const profileImageUpload = document.getElementById("profileImageUpload").files[0];
+            const nameInput = document.getElementById("nameInput").value.trim();
+            const titleInput = document.getElementById("titleInput").value.trim();
+            const aboutMeInput = document.getElementById("aboutMeInput").value.trim();
+            const logoSelect = document.getElementById("logoSelect").value;
+
+            if (profileImageUpload) {
+                const profileImageUrl = URL.createObjectURL(profileImageUpload);
+                document.getElementById("profileImage").src = profileImageUrl;
+            }
+
+            document.getElementById("name").textContent = nameInput || "Your Name";
+            document.getElementById("title").textContent = titleInput || "Your Job Title";
+            document.getElementById("aboutMe").textContent = aboutMeInput || "Tell us about yourself";
+
+            const contactsDiv = document.getElementById("contacts");
+            contactsDiv.innerHTML = ""; // Clear previous content
+
+            // Append phone numbers
+            const phoneInputs = document.querySelectorAll("#phoneContainer input");
+            phoneInputs.forEach((input) => {
+                if (input.value.trim()) {
+                    contactsDiv.innerHTML += `<p>📞 ${input.value.trim()}</p>`;
+                }
+            });
+
+             // Append Extension
+             const extInputs = document.querySelectorAll("#ExtensionContainer input");
+            extInputs.forEach((input) => {
+                if (input.value.trim()) {
+                    contactsDiv.innerHTML += `<p>#️⃣ ${input.value.trim()}</p>`;
+                }
+            });
+
+            // Append email addresses
+            const emailInputs = document.querySelectorAll("#emailContainer input");
+            emailInputs.forEach((input) => {
+                if (input.value.trim()) {
+                    contactsDiv.innerHTML += `<p>✉️ ${input.value.trim()}</p>`;
+                }
+            });
+
+            // Append links
+            const linkInputs = document.querySelectorAll("#linkContainer input");
+            linkInputs.forEach((input) => {
+                if (input.value.trim()) {
+                    contactsDiv.innerHTML += `<p>🔗 <a href="${input.value.trim()}" target="_blank">${input.value.trim()}</a></p>`;
+                }
+            });
+
+            if (logoSelect) {
+                document.getElementById("logoImage").src = logoSelect;
+            } else {
+                document.getElementById("logoImage").src = "";
+            }
+        }
+
+        function generateCard() {
+    const profileImageUpload = document.getElementById("profileImageUpload").files[0];
+    const nameInput = document.getElementById("nameInput").value.trim();
+    const titleInput = document.getElementById("titleInput").value.trim();
+    const aboutMeInput = document.getElementById("aboutMeInput").value.trim();
+    const logoSelect = document.getElementById("logoSelect").value;
+
+    if (profileImageUpload) {
+        const profileImageUrl = URL.createObjectURL(profileImageUpload);
+        document.getElementById("profileImage").src = profileImageUrl;
+    }
+
+    document.getElementById("name").textContent = nameInput || "Your Name";
+    document.getElementById("title").textContent = titleInput || "Your Job Title";
+    document.getElementById("aboutMe").textContent = aboutMeInput || "Tell us about yourself";
+
+    const contactsDiv = document.getElementById("contacts");
+    contactsDiv.innerHTML = ""; // Clear previous content
+
+    const phoneInputs = document.querySelectorAll("#phoneContainer input");
+    phoneInputs.forEach((input) => {
+        if (input.value.trim()) {
+            contactsDiv.innerHTML += `<p>📞 ${input.value.trim()}</p>`;
+        }
+    });
+
+    const emailInputs = document.querySelectorAll("#emailContainer input");
+    emailInputs.forEach((input) => {
+        if (input.value.trim()) {
+            contactsDiv.innerHTML += `<p>✉️ ${input.value.trim()}</p>`;
+        }
+    });
+
+    const linkInputs = document.querySelectorAll("#linkContainer input");
+    linkInputs.forEach((input) => {
+        if (input.value.trim()) {
+            contactsDiv.innerHTML += `<p>🔗 <a href="${input.value.trim()}" target="_blank">${input.value.trim()}</a></p>`;
+        }
+    });
+
+    if (logoSelect) {
+        document.getElementById("logoImage").src = logoSelect;
+    } else {
+        document.getElementById("logoImage").src = "";
+    }
+
+    // Show the card by removing the "hidden" class
+    const card = document.getElementById("card");
+    card.classList.remove("hidden");
+
+    // Show the "Save Card" button by removing the "hidden" class
+    const saveCardButton = document.getElementById("saveCardButton");
+    saveCardButton.classList.remove("hidden");
+}
+        function saveCard() {
+    const card = document.getElementById("card").outerHTML;
+
+    // Generate unique identifier (e.g., timestamp + name)
+    const name = document.getElementById("nameInput").value.trim() || "User";
+    const timestamp = Date.now();
+    const uniqueId = encodeURIComponent(name + "_" + timestamp);
+
+    // Create a unique URL with query parameters
+    const uniqueUrl = `https://example.com/saved-card.html?userId=${uniqueId}`;
+
+    // Open a new tab with the generated URL
+    const newWindow = window.open(uniqueUrl, '_blank');
+    newWindow.document.open();
+    newWindow.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+             <body>
+        <header>
+            <img src="C:/Users/nestess/OneDrive - Hood Industries, Inc/Desktop/Card2/Hood horizontal Logo.png" 
+                 alt="Hood Horizontal Logo" 
+                 class="logo-header"
+                 style="max-width: 120px;">
+
+        </header>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Saved Business Card</title>
+            <style>
+                ${document.querySelector('style').innerHTML}
+            </style>
+        </head>
+        <body>
+            ${card}
+               <footer class="footer">
+        <p>&copy; 2025 Hood Industries. All rights reserved.</p>
+    </footer>
+        </body>
+        </html>
+    `);
+    newWindow.document.close();
+}
+    </script>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Hood Industries. All rights reserved.</p>
+    </footer>
+    
+</body>
+
+</html>
